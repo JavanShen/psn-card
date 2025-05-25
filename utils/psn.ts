@@ -4,6 +4,7 @@ import {
   getProfileFromUserName,
   getUserPlayedGames,
 } from "psn-api";
+import { imageUrl2Base64 } from "./base64";
 
 export type Profile = Awaited<ReturnType<typeof getPsnProfile>>;
 
@@ -33,13 +34,20 @@ export const getPsnProfile = async (account: string) => {
     offset: 0,
   });
 
+  const recentPlayedGames = await Promise.all(
+    playedGames.titles.map(async (item) => ({
+      ...item,
+      localizedImageUrl: await imageUrl2Base64(item.localizedImageUrl),
+    })),
+  );
+
   return {
     accountId,
     isPlus: plus === 1,
-    avatarUrl: avatarUrls[0].avatarUrl,
+    avatarUrl: await imageUrl2Base64(avatarUrls[0].avatarUrl),
     personalDetail,
     trophySummary,
     aboutMe,
-    recentPlayedGames: playedGames.titles,
+    recentPlayedGames,
   };
 };
