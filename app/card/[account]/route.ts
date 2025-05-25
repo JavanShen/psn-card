@@ -4,7 +4,7 @@ import { generateStyle, generateGames, generateCounts } from "../generate";
 import { imageUrl2Base64 } from "@/utils/base64";
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ account: string }> },
 ) {
   try {
@@ -16,12 +16,14 @@ export async function GET(
       ? profile.personalDetail.firstName + " " + profile.personalDetail.lastName
       : account;
 
-    const base64Avatar = await imageUrl2Base64(profile.avatarUrl);
-
     const trophyIcons: Record<string, string> = {};
     for (const item of ["platinum", "gold", "silver", "bronze"]) {
-      trophyIcons[item] = await imageUrl2Base64(`/${item}.png`);
+      trophyIcons[item] = await imageUrl2Base64(
+        `${req.nextUrl.origin}/${item}.png`,
+      );
     }
+
+    const plusIcon = await imageUrl2Base64(`${req.nextUrl.origin}/plus.png`);
 
     const svgContent = `
     <svg width="400" height="150" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
@@ -30,11 +32,11 @@ export async function GET(
         <div class="card" xmlns="http://www.w3.org/1999/xhtml">
           <div class="top">
             <div class="user-info">
-              <img class="avatar" src="${base64Avatar}" width="60" height="60" />
+              <img class="avatar" src="${profile.avatarUrl}" width="60" height="60" />
               <div class="status">
                 <div>
                   <span style="font-size: 15px;">${nickname}</span>
-                  ${profile.isPlus ? '<img style="margin-left: 3px; display: inline-block;" src="/plus.png" width="12" height="12" />' : ""}
+                  ${profile.isPlus ? `<img style="margin-left: 3px; display: inline-block;" src="${plusIcon}" width="12" height="12" />` : ""}
                 </div>
                 <div>
                   LV.${profile.trophySummary.level}
