@@ -1,9 +1,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 const PNG_PREFIX = "data:image/png;base64,";
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export async function imageUrl2Base64(url: string): Promise<string> {
   try {
@@ -12,7 +10,7 @@ export async function imageUrl2Base64(url: string): Promise<string> {
     if (url.startsWith("/")) {
       return (
         PNG_PREFIX +
-        (await readFile(path.join(__dirname, "../public" + url), {
+        (await readFile(path.join(process.cwd(), "/public" + url), {
           encoding: "base64",
         }))
       );
