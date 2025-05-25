@@ -4,7 +4,7 @@ export function generateGames(games: Profile["recentPlayedGames"]) {
   let gamesSvg = "";
   games.forEach((game) => {
     gamesSvg += /* html */ `
-    <img width="33" height="33" src="${game.localizedImageUrl}" />
+    <img style="border-radius: 5px;" width="40" height="40" src="${game.localizedImageUrl}" />
     `;
   });
 

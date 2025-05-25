@@ -14,13 +14,19 @@ const authenticate = async () => {
   return authorization;
 };
 
-export const getPsnProfile = async () => {
+export const getPsnProfile = async (account: string) => {
   const authorization = await authenticate();
 
-  const profileRes = await getProfileFromUserName(authorization, "apineboluo");
+  const profileRes = await getProfileFromUserName(authorization, account);
 
-  const { accountId, avatarUrls, personalDetail, trophySummary, aboutMe } =
-    profileRes.profile;
+  const {
+    accountId,
+    avatarUrls,
+    personalDetail,
+    trophySummary,
+    aboutMe,
+    plus,
+  } = profileRes.profile;
 
   const playedGames = await getUserPlayedGames(authorization, accountId, {
     limit: 5,
@@ -29,6 +35,7 @@ export const getPsnProfile = async () => {
 
   return {
     accountId,
+    isPlus: plus === 1,
     avatarUrl: avatarUrls[0].avatarUrl,
     personalDetail,
     trophySummary,

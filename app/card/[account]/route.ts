@@ -1,14 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getPsnProfile } from "@/utils/psn";
-import { generateStyle, generateGames, generateCounts } from "./generate";
+import { generateStyle, generateGames, generateCounts } from "../generate";
 
-export async function GET(req: NextRequest) {
-  const profile = await getPsnProfile();
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: Promise<{ account: string }> },
+) {
+  try {
+    const { account } = await params;
 
-  const nickname =
-    profile.personalDetail.lastName + profile.personalDetail.firstName;
+    const profile = await getPsnProfile(account);
 
-  const svgContent = `
+    const nickname = profile.personalDetail
+      ? profile.personalDetail.firstName + " " + profile.personalDetail.lastName
+      : account;
+
+    const svgContent = `
     <svg width="400" height="150" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
       ${generateStyle()}
       <foreignObject width="400" height="150">
@@ -18,10 +25,11 @@ export async function GET(req: NextRequest) {
               <img class="avatar" src="${profile.avatarUrl}" width="60" height="60" />
               <div class="status">
                 <div>
-                  ${nickname}
+                  <span style="font-size: 15px;">${nickname}</span>
+                  ${profile.isPlus ? '<img style="margin-left: 3px; display: inline-block;" src="/plus.png" width="12" height="12" />' : ""}
                 </div>
                 <div>
-                    LV.${profile.trophySummary.level}
+                  LV.${profile.trophySummary.level}
                 </div>
               </div>
             </div>
@@ -31,25 +39,26 @@ export async function GET(req: NextRequest) {
           </div>
 
           <div class="bottom">
-            <div style="font-size:12px;margin-bottom:12px">
-                12 hours
-            </div>
             <div class="game-list">
               ${generateGames(profile.recentPlayedGames)}
             </div>
-          </div>
-
-          <div class="icon-list">
-
           </div>
         </div>
       </foreignObject>
     </svg>
   `;
 
-  return new NextResponse(svgContent, {
-    headers: {
-      "Content-Type": "image/svg+xml",
-    },
-  });
+    return new NextResponse(svgContent, {
+      headers: {
+        "Content-Type": "image/svg+xml",
+      },
+    });
+  } catch (e) {
+    return new NextResponse((e as Error).toString(), {
+      status: 500,
+      headers: {
+        "Content-Type": "text/plain",
+      },
+    });
+  }
 }

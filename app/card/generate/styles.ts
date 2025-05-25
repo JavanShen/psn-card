@@ -1,5 +1,3 @@
-import type { Profile } from "@/utils/psn";
-
 export function generateStyle() {
   return /* html */ `
     <style>
@@ -7,14 +5,15 @@ export function generateStyle() {
         color: white;
         background: linear-gradient(45deg, #016AD3, #003C9E);
         font-size: 14px;
-        height: 130px;
-        width: 380px;
+        height: 150px;
+        width: 400px;
         padding: 10px;
         gap: 10px;
         display: flex;
         flex-direction: column;
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         border-radius: 5px;
+        justify-content: space-between;
       }
 
       .top {
@@ -34,7 +33,7 @@ export function generateStyle() {
       .status {
         display:flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: start;
         font-size: 12px;
         font-weight: bold;
       }
