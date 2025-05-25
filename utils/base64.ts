@@ -10,7 +10,7 @@ export async function imageUrl2Base64(url: string): Promise<string> {
     if (url.startsWith("/")) {
       return (
         PNG_PREFIX +
-        (await readFile(path.join(process.cwd(), "/public" + url), {
+        (await readFile(path.join(process.cwd(), "/icons" + url), {
           encoding: "base64",
         }))
       );
