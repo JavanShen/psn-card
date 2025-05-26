@@ -19,7 +19,7 @@ English | <a href="./README-CN.md">中文</a>
 ## 🔥 Features
 - **Dynamic**: The card content will be dynamically generated according to your Steam status.
 - **User Friendly**: Generate your Steam card on [Online](https://psn-card.vercel.app)
-- **Deployable**: Support deploy it with `Vercel`.
+- **Deployable**: Support deploy it with `Vercel` or `Docker`.
 
 ## 📦 Deployment
 **Environment Variables**
@@ -31,6 +31,12 @@ English | <a href="./README-CN.md">中文</a>
 ### PaaS
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJavanShen%2Fpsn-card&env=NPSSO)
+
+### Docker
+
+```shell
+docker run -d -p 3015:3000 -e NPSSO=YOUR_NPSSO_KEY oneboluo/psn-card
+```
 
 ## ⚒️ Develop
 

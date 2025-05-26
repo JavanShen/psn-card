@@ -18,7 +18,7 @@ PSN Card
 ## 🔥 功能
 - **动态**: 卡片内容会根据你的PSN状态动态生成
 - **用户友好**: 通过 [在线](https://psn-card.vercel.app) 生成你的PSN资料卡片
-- **部署**: 支持 `Vercel` 部署.
+- **部署**: 支持 `Vercel` 或 `Docker` 部署.
 
 ## 📦 部署
 **环境变量**
@@ -30,6 +30,12 @@ PSN Card
 ### PaaS
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJavanShen%2Fpsn-card&env=NPSSO)
+
+### Docker
+
+```shell
+docker run -d -p 3015:3000 -e NPSSO=YOUR_NPSSO_KEY oneboluo/psn-card
+```
 
 ## ⚒️ 开发
 
