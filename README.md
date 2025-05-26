@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">
+PSN Card
+</h1>
 
-## Getting Started
 
-First, run the development server:
+<p align='center'>
+English | [中文](./README-CN.md)
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<p align="center">
+<a href="https://psn-card.vercel.app" style="font-size:20px">Online</a>
+</p>
+<p align="center">
+  <a href="https://psn-card.vercel.app">
+		<img src="https://psn-card.vercel.app/card/apineboluo"/>
+  </a>
+</p>
+
+## 🔥 Features
+- **Dynamic**: The card content will be dynamically generated according to your Steam status.
+- **User Friendly**: Generate your Steam card on [Online](https://psn-card.vercel.app)
+- **Deployable**: Support deploy it with `Vercel`.
+
+## 📦 Deployment
+**Environment Variables**
+
+| Name      | Description | Example |
+| ----------- | ----------- | ----------- |
+| NPSSO      | [See psn-api](https://psn-api.achievements.app/authentication/authenticating-manually) | zgQLyxxxxxzxBMoWU |
+
+### PaaS
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FJavanShen%2Fpsn-card&env=NPSSO)
+
+## ⚒️ Develop
+
+> Requirement:
+>
+> **Node >=16**
+>
+> **[NPSSO](https://psn-api.achievements.app/authentication/authenticating-manually)**
+
+```shell
+# copy a .env.local file
+cp .env.example .env.local
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Add your NPSSO on .env.local file
+```shell
+NPSSO=YOUR_NPSSO_KEY
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+# install dependencies
+pnpm install
+# or
+yarn install
+# or
+npm install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# start the service
+npm run dev
+```
 
-## Learn More
+## ❤️ Credits
+Inspired by [steam-card](https://github.com/yuyinws/steam-card)
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+API provider [psn-api](https://github.com/achievements-app/psn-api)
