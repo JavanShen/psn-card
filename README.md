@@ -4,7 +4,7 @@ PSN Card
 
 
 <p align='center'>
-English | [中文](./README-CN.md)
+English | <a href="./README-CN.md">中文</a>
 </p>
 
 <p align="center">
