@@ -28,7 +28,7 @@ export async function GET(
                   <span style="font-size: 15px;">${nickname}</span>
                   ${profile.isPlus ? `<img style="margin-left: 3px; display: inline-block;" src="${plusBase64}" width="12" height="12" />` : ""}
                 </div>
-                <div>
+                <div style="margin-top: 4px">
                   LV.${profile.trophySummary.level}
                 </div>
               </div>

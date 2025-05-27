@@ -11,6 +11,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [isGenerated, setIsGenerated] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const generateCode = (type: "url" | "html" | "markdown") => {
     let code = "";
@@ -50,9 +51,16 @@ export default function Home() {
     <div className="flex justify-center items-center h-screen w-screen">
       <div className="flex flex-col" style={{ width: 400 }}>
         <Input
+          ref={inputRef}
           placeholder="PSN Online ID"
           onChange={(e) => {
             setAccount(e.target.value);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              generateSvg();
+              inputRef.current?.blur();
+            }
           }}
         />
         <Button
