@@ -8,17 +8,17 @@ English | <a href="./README-CN.md">中文</a>
 </p>
 
 <p align="center">
-<a href="https://psn-card.vercel.app" style="font-size:20px">Online</a>
+<a href="https://psncard.dogpaw.top" style="font-size:20px">Online</a>
 </p>
 <p align="center">
-  <a href="https://psn-card.vercel.app">
-		<img src="https://psn-card.vercel.app/card/apineboluo"/>
+  <a href="https://psncard.dogpaw.top">
+		<img src="https://psncard.dogpaw.top/card/apineboluo"/>
   </a>
 </p>
 
 ## 🔥 Features
 - **Dynamic**: The card content will be dynamically generated according to your Steam status.
-- **User Friendly**: Generate your Steam card on [Online](https://psn-card.vercel.app)
+- **User Friendly**: Generate your Steam card on [Online](https://psncard.dogpaw.top)
 - **Deployable**: Support deploy it with `Vercel` or `Docker`.
 
 ## 📦 Deployment

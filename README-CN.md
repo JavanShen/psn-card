@@ -7,17 +7,17 @@ PSN Card
 </p>
 
 <p align="center">
-<a href="https://psn-card.vercel.app" style="font-size:20px">在线</a>
+<a href="https://psncard.dogpaw.top" style="font-size:20px">在线</a>
 </p>
 <p align="center">
-  <a href="https://psn-card.vercel.app">
-		<img src="https://psn-card.vercel.app/card/apineboluo"/>
+  <a href="https://psncard.dogpaw.top">
+		<img src="https://psncard.dogpaw.top/card/apineboluo"/>
   </a>
 </p>
 
 ## 🔥 功能
 - **动态**: 卡片内容会根据你的PSN状态动态生成
-- **用户友好**: 通过 [在线](https://psn-card.vercel.app) 生成你的PSN资料卡片
+- **用户友好**: 通过 [在线](https://psncard.dogpaw.top) 生成你的PSN资料卡片
 - **部署**: 支持 `Vercel` 或 `Docker` 部署.
 
 ## 📦 部署
