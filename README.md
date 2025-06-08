@@ -17,8 +17,8 @@ English | <a href="./README-CN.md">中文</a>
 </p>
 
 ## 🔥 Features
-- **Dynamic**: The card content will be dynamically generated according to your Steam status.
-- **User Friendly**: Generate your Steam card on [Online](https://psncard.dogpaw.top)
+- **Dynamic**: The card content will be dynamically generated according to your PSN status.
+- **User Friendly**: Generate your PSN card on [Online](https://psncard.dogpaw.top)
 - **Deployable**: Support deploy it with `Vercel` or `Docker`.
 
 ## 📦 Deployment
