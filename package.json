@@ -17,6 +17,7 @@
     "psn-api": "^2.11.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "sharp": "^0.34.2",
     "tailwind-merge": "^3.3.0"
   },
   "devDependencies": {
