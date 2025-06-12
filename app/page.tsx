@@ -49,7 +49,17 @@ export default function Home() {
 
   return (
     <div className="flex justify-center items-center h-screen w-screen">
-      <div className="flex flex-col" style={{ width: 400 }}>
+      <div className="flex flex-col items-center" style={{ width: 400 }}>
+        <h1
+          style={{
+            backgroundImage: "linear-gradient(45deg, #016AD3, #003C9E)",
+            WebkitTextFillColor: "transparent",
+          }}
+          className="text-5xl font-bold bg-clip-text"
+        >
+          PSN Profile Card
+        </h1>
+        <p className="my-4 mb-12 text-xl">Generate your PSN profile card</p>
         <Input
           ref={inputRef}
           placeholder="PSN Online ID"
@@ -64,6 +74,7 @@ export default function Home() {
           }}
         />
         <Button
+          size="lg"
           className="my-8 cursor-pointer"
           disabled={isLoading}
           onClick={generateSvg}

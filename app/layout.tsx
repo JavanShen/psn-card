@@ -1,4 +1,15 @@
 import "./globals.css";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "PSN Profile Card",
+  description: "Generate your PSN profile card",
+  keywords: ["PSN", "Profile", "Card", "Generator", "PlayStation"],
+  authors: {
+    name: "Apine",
+    url: "https://github.com/JavanShen",
+  },
+};
 
 export default function RootLayout({
   children,
